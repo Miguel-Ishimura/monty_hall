@@ -1,0 +1,22 @@
+import random
+prizes = ['goat','goat','car']
+doors = []
+while (len(prizes) > 0):
+    prize_num = random.randrange(len(prizes))
+    doors.append(prizes.pop(prize_num))
+print(doors)
+
+choice1 = eval(input("Chosse your door's number (1-3)"))
+print('I will show another door first...')
+while (True):
+    random_door = random.randrange(len(doors))
+    if doors[random_door] != 'car' and choice1 - 1 != random_door:
+        break
+print ('Look at the door number', random_door+1,':', doors[random_door] )
+
+choice2 = int(input('It's your last chance! Do you want to change your door? YES (1)/ NO(2)'))
+
+if choice2 == 1:
+    print('You won a...', doors[3 - (choice1 -1) - random_door], "!")
+else:
+    print('You won a... ', doors[choice1 - 1])
